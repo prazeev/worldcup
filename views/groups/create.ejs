@@ -1,0 +1,58 @@
+<% include ../includes/header.ejs %>
+<% include ../includes/sidebar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>Home - Groups
+               <small>Create Group</small>
+            </h3>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="/groups" class="btn btn-md btn-primary">
+                  <i class="fa fa-eye"></i> View Groups
+                </a>
+                <hr>
+              </div>
+              <div class="col-md-9">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    Add new Group
+                  </div>
+                  <div class="panel-body">
+                    <form class="ajaxForm" method="post" role="form" data-parsley-validate="" novalidate="">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="name">Enter Group name *</label>
+                          <input type="text" name="name" placeholder="Enter Group name" class="form-control" required="required">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="name">Select Game *</label>
+                          <select class="form-control" name="game">
+                            <% for(var i = data.length - 1; i >= 0; i--) { %>
+                              <option value="<%=data[i]._id %>"><%=data[i].name %></option>
+                            <% } %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label> </label>
+                          <input class="btn btn-success" type="submit" name="submit" value="Create new group">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-group">
+                  <li class="list-group-item">All fields are required!</li>
+                </ul>
+              </div>
+            </div>
+         </div>
+      </section>
+      <!-- Page footer-->
+<% include ../includes/footer.ejs %>

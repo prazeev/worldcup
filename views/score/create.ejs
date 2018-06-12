@@ -1,0 +1,96 @@
+<% include ../includes/header.ejs %>
+<% include ../includes/sidebar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>Home - Score
+               <small>Create Score</small>
+            </h3>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="/score" class="btn btn-md btn-primary">
+                  <i class="fa fa-eye"></i> View ScoreBoard
+                </a>
+                <hr>
+              </div>
+              <div class="col-md-9">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    Add new ScoreBoard
+                  </div>
+                  <div class="panel-body">
+                    <form class="ajaxForm" method="post" role="form" data-parsley-validate="" novalidate="">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="time">Start time* (NST)</label>
+                          <input type="text" name="time" class="form-control datetime" placeholder="Enter date and time">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="match">Match number</label>
+                          <input type="number" name="match" placeholder="Enter match number" class="form-control" required="required">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="Location">Location</label>
+                          <input type="text" name="location" placeholder="Enter location of match" class="form-control" required="required">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="game">Select Game</label>
+                          <select class="form-control" name="game">
+                            <option value="">--SELECT MATCH--</option>
+                          <% for(var i = 0; i < data.length; i++) { %>
+                              <option value="<%=data[i]._id %>"><%=data[i].name %></option>
+                          <% } %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="group">Select Group*</label>
+                          <select class="form-control" name="group" id="game-group">
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="team1">Team 1*</label>
+                          <select class="form-control team" name="teamone">
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="team1">Team 2*</label>
+                          <select class="form-control team" name="teamtwo">
+
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label> </label>
+                          <input class="btn btn-success" type="submit" name="submit" value="Create">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-group">
+                  <li class="list-group-item">All fields are compulsary</li>
+                </ul>
+              </div>
+            </div>
+         </div>
+      </section>
+      <!-- Page footer-->
+<% include ../includes/footer.ejs %>

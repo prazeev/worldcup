@@ -1,0 +1,77 @@
+<% include ../includes/header.ejs %>
+<% include ../includes/sidebar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>Home - Score
+               <small>Update Score <%=data.teamonedetails[0].name %> VS <%=data.teamtwodetails[0].name %></small>
+            </h3>
+            <div class="row">
+              <div class="col-md-9">
+                <form class="ajaxForm" method="post" role="form" data-parsley-validate="" novalidate="">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="teamone">First Team</label>
+                      <input type="text" value="<%=data.teamonedetails[0].name %>" readonly="readonly" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="teamtwo">Second Team</label>
+                      <input type="text" value="<%=data.teamtwodetails[0].name %>" readonly="readonly" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="details">Details</label>
+                      <textarea name="details" rows="8" cols="80" class="form-control"><%=data.details %></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="socreone">Score for <%=data.teamonedetails[0].name %></label>
+                      <input type="number" name="scoreone" value="<%=data.scoreone %>" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="socretwo">Score for <%=data.teamtwodetails[0].name %></label>
+                      <input type="number" name="scoretwo" value="<%=data.scoretwo %>" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="status">
+                        Status <br>
+                        (<input type="radio" name="status" value="1" <%=(data.status == true) ? 'checked="checked"' : '' %>>) Active
+                        (<input type="radio" name="status" value="0" <%=(data.status == false) ? 'checked="checked"' : '' %>>) InActive
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="status">
+                        Completed <br>
+                        (<input type="radio" name="completed" value="1" <%=(data.completed == true) ? 'checked="checked"' : '' %>>) Completed
+                        (<input type="radio" name="completed" value="0" <%=(data.completed == false) ? 'checked="checked"' : '' %>>) Not Completed
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="submit" name="submit" value="Update!!" class="btn btn-success">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-group">
+                  <li class="list-group-item">All fields are compulsary!</li>
+                </ul>
+              </div>
+            </div>
+         </div>
+      </section>
+      <!-- Page footer-->
+<% include ../includes/footer.ejs %>

@@ -1,0 +1,23 @@
+/**
+ * @Author: Bashudev Poudel <prazeev>
+ * @Date:   2018-06-08T13:17:56+05:45
+ * @Email:  prazeev@gmail.com
+ * @Filename: styles.css
+ * @Last modified by:   prazeev
+ * @Last modified time: 2018-06-08T14:35:35+05:45
+ * @Copyright: Copyright 2018, Bashudev Poudel
+ */
+.bg-bizpati {
+  background-color: #1e3b71;
+  color: #fff !important;
+}
+.bg-bizpati-red {
+  background-color: #e71d2b !important;
+  color: #FFFFFF !important;
+}
+.navbar.topnavbar {
+  background: #e71d2b !important;
+}
+.color-white {
+  color: #FFF !important;
+}

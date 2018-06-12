@@ -1,0 +1,31 @@
+<% include ./includes/header-no-navbar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="bg-bizpati text-center" style="min-height:40px;padding-top:5px">Result</h3>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>Match</th>
+                        <th>Winner</th>
+                        <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i=0; i< data.length; i++) { %>
+                      <tr>
+                        <td><%=data[i].teamonedetails[0].name %> [<%=data[i].scoreone %>] VS <%=data[i].teamtwodetails[0].name %> [<%=data[i].scoretwo %>]</td>
+                        <td><% if(data[i].scoreone == data[i].scoretwo) { %> Draw <% } else if(data[i].scoreone > data[i].scoretwo) { %> <%=data[i].teamonedetails[0].name %><% } else { %><%=data[i].teamtwodetails[0].name%><% } %></td>
+                        <td><%=data[i].details %></td>
+                      </tr>
+                    <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+         </div>
+         <% include ./includes/footer.ejs %>
