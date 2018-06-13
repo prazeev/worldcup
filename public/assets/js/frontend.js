@@ -4,11 +4,11 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T14:16:58+05:45
+ * @Last modified time: 2018-06-13T15:47:46+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
-  var base_url = "http://chatmini.com:8262/"
+  var base_url = "http://worldcup.bizpati.com/"
   function formatDate(date) {
     var monthNames = [
       "January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"
