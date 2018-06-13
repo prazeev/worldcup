@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-09T17:44:06+05:45
+ * @Last modified time: 2018-06-13T11:24:32+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -55,6 +55,11 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
     var newTeam = {
       name: team.name,
       code: team.code,
+      gp: 0,
+      w: 0,
+      l: 0,
+      d: 0,
+      p: 0,
       game: new mongodb.ObjectID(team.game),
       group: new mongodb.ObjectID(team.group),
       date: new Date()

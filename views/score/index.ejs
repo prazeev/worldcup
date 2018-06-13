@@ -35,7 +35,7 @@
                       <td><%=data[i].date %></td>
                       <td><span class="timer" data-time="0" currentTime="<%=currentTime %>" matchTime="<%=data[i].time %>">0</td>
                       <td><%=data[i].status ? 'Active' : 'Not Active' %></td>
-                      <td>[<a href="update/<%= data[i]._id %>">Update</a>][<a href="delete/<%= data[i]._id %>" class="ajaxClick">Delete</a>]</td>
+                      <td>[<a href="update/<%= data[i]._id %>">Update</a>][<a href="delete/<%= data[i]._id %>" class="ajaxClick">Delete</a>][<a href="predict/<%=data[i]._id %>">View Prediction</a>]</td>
                     </tr>
                   <% } %>
                   </tbody>

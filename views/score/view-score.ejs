@@ -1,0 +1,42 @@
+<% include ../includes/header.ejs %>
+<% include ../includes/sidebar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>Home - Prediction
+               <small>Prediction</small>
+            </h3>
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-responsive table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Prediction</th>
+                      <th>Result</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% for(var i= data.length-1; i >= 0; i--) { %>
+                    <tr>
+                      <td><%=i+1 %></td>
+                      <td><%=data[i].name %></td>
+                      <td><%=data[i].scoreone %> VS <%=data[i].scoretwo %></td>
+                      <td><%=data[i].gamedetails[0].scoreone %> VS <%=data[i].gamedetails[0].scoretwo %></td>
+                      <td><%=(data[i].gamedetails[0].completed) ? "Game Completed!" : "Result not approved"%></td>
+                      <td><%=data[i].date %></td>
+                      <td>[<a href="/score/delete/prediction/<%= data[i]._id %>" class="ajaxClick">Delete</a>]</td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+         </div>
+      </section>
+      <!-- Page footer-->
+<% include ../includes/footer.ejs %>

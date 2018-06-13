@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-09T18:09:21+05:45
+ * @Last modified time: 2018-06-13T10:32:40+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
@@ -65,18 +65,18 @@ $(function() {
                   <div class="row" style="margin-top:5px">\
                     <div class="col-md-6 col-xs-6">\
                       <center>\
-                        <input type="text" class="form-control" style="border-radius:0px; min-height:40px;max-width:80px">\
+                        <input type="text" class="form-control" data-match="'+value._id+'first" style="border-radius:0px; min-height:40px;max-width:80px">\
                       </center>\
                     </div>\
                     <div class="col-md-6 col-xs-6">\
                       <center>\
-                        <input type="text" class="form-control" style="border-radius:0px; min-height:40px;max-width:80px">\
+                        <input type="text" class="form-control" data-match="'+value._id+'second" style="border-radius:0px; min-height:40px;max-width:80px">\
                       </center>\
                     </div>\
                   </div>\
                   <div class="row clearfix">\
                     <div class="col-md-12">\
-                      <button type="button" class="btn btn-danger btn-sm">Predict</button>\
+                      <button type="button" class="btn btn-danger btn-sm" data-predict="button'+value._id+'">Predict</button>\
                     </div>\
                   </div>\
                   <hr/>\
@@ -96,5 +96,55 @@ $(function() {
       }
     })
   }
+  function loadLeaderboard() {
+    $.ajax({
+      url: base_url+"frontend/leaderboard/20",
+      success: function(response) {
+        $.each(response, function(key, value) {
+          var game = '<tr>\
+            <td>'+(key+1)+'</td>\
+            <td>'+value.name+'</td>\
+            <td>'+value.points+'</td>\
+          </tr>'
+          $("#leaderboard").append(game)
+        })
+      }
+    })
+  }
   loadGame()
+  loadLeaderboard()
+  $(document).on("click", "[data-predict^=button]", function(e) {
+    e.preventDefault()
+    var id = $(this).attr("data-predict")
+    var id_list = id.split("button")
+    id = id_list[1]
+
+    var first = $("[data-match="+id+"first]").val().trim()
+    var second = $("[data-match="+id+"second]").val().trim()
+    if(first != '' && second != '') {
+      $(this).attr("disabled", true)
+      $(this).html("Loading <i class='fa fa-spin fa-spinner'></i>")
+      var selector = $(this)
+      $.ajax({
+        url: base_url+"frontend/predict/"+id+"/"+first+"/"+second,
+        success: function(r) {
+          if(r.error) {
+            swal("Opps!!", r.message, "error")
+            selector.html("<i class='fa fa-times'></i> Failed")
+          } else {
+            selector.html("<i class='fa fa-check'></i> Success")
+            selector.removeClass("btn-danger")
+            selector.addClass("btn-success")
+            swal("Success!!", r.message, "success")
+            window.location.href = "/";
+          }
+        },
+        error: function(r) {
+          console.log(r);
+        }
+      })
+    } else {
+      swal("Opps!", "Please fill out all fields!!", "error")
+    }
+  })
 })

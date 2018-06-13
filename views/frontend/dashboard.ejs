@@ -16,7 +16,7 @@
                            <em class="icon-share fa-3x"></em>
                         </div>
                         <div class="col-xs-8 pv-lg">
-                           <div class="h1 m0 text-bold">150</div>
+                           <div class="h1 m0 text-bold"><%=data.game_played %></div>
                            <div class="text-uppercase">Game Play</div>
                         </div>
                      </div>
@@ -30,7 +30,7 @@
                            <em class="icon-star fa-3x"></em>
                         </div>
                         <div class="col-xs-8 pv-lg">
-                           <div class="h1 m0 text-bold">7000</div>
+                           <div class="h1 m0 text-bold"><%=data.points %></div>
                            <div class="text-uppercase">Points</div>
                         </div>
                      </div>
@@ -44,7 +44,7 @@
                            <em class="icon-trophy fa-3x"></em>
                         </div>
                         <div class="col-xs-8 pv-lg">
-                           <div class="h1 m0 text-bold">10%</div>
+                           <div class="h1 m0 text-bold"><%=Math.floor((data.game_played/48) * 100) %> %</div>
                            <div class="text-uppercase">Domination</div>
                         </div>
                      </div>
@@ -56,7 +56,7 @@
                 <h4><u>Todays Match</u></h4>
               </div>
               <div class="panel-body" id="gamelist">
-                
+
               </div>
             </div>
             <div class="row">
@@ -72,7 +72,7 @@
                       <table class="table table-striped table-bordered">
                         <thead>
                           <tr class="bg-bizpati">
-                            <th colspan="6" class="text-center color-white">Leaderboard</th>
+                            <th colspan="6" class="text-center color-white">Leaderboard (Over All)</th>
                           </tr>
                           <tr>
                             <th>SN</th>
@@ -80,182 +80,8 @@
                             <th>Score</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Bashudev Paudel</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Ujwal Kadariya</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Suman Raimajhi</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Rajan Shrestha</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Hemanta Ranabhat</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>Sashank Koirala</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>7</td>
-                            <td>Bikash Paudel</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>8</td>
-                            <td>Dilip Raimajhi</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>9</td>
-                            <td>Suman Khadka</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Yogesh Khatiwoda</td>
-                            <td>100</td>
-                          </tr>
+                        <tbody id="leaderboard">
+
                         </tbody>
                       </table>
                     </div>
@@ -263,6 +89,7 @@
                 </div>
               </div>
               <div class="col-md-8">
+                <% for(var i=0; i < groups.length; i++) { %>
                 <div class="col-md-6">
                   <div class="panel panel-primary">
                     <div class="panel-body">
@@ -270,7 +97,7 @@
                         <table class="table table-striped table-bordered">
                           <thead>
                             <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
+                              <th colspan="6" class="text-center color-white"><%=groups[i].name %></th>
                             </tr>
                             <tr>
                               <th>Country</th>
@@ -282,507 +109,23 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <% for(var j = 0; j < groups[i].data.length; j++) { %>
                             <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
+                              <td><%=groups[i].data[j].name %></td>
+                              <td><%=groups[i].data[j].gp %></td>
+                              <td><%=groups[i].data[j].w %></td>
+                              <td><%=groups[i].data[j].d %></td>
+                              <td><%=groups[i].data[j].l %></td>
+                              <td><%=groups[i].data[j].p %></td>
                             </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
+                            <% } %>
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                          <thead>
-                            <tr class="bg-bizpati">
-                              <th colspan="6" class="text-center color-white">Group A</th>
-                            </tr>
-                            <tr>
-                              <th>Country</th>
-                              <th>GP</th>
-                              <th>W</th>
-                              <th>D</th>
-                              <th>L</th>
-                              <th>P</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <td>Nepal</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                              <td>0</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <% } %>
                 <div class="col-md-12">
                   <img src="https://dummyimage.com/700x90/1e3b71/e71d2b" alt="" class="img img-responsive">
                 </div>

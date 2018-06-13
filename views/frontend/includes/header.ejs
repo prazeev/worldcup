@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <title>Dashboard - Control PANEL</title>
+   <title>Worldcup Predict and Win</title>
    <!-- =============== VENDOR STYLES ===============-->
    <!-- FONT AWESOME-->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,6 +24,15 @@
 
 <body class="layout-h">
    <div class="wrapper">
+     <div class="row">
+       <div class="col-md-12 text-center">
+         <br>
+         <center>
+           <img src="/assets/img/wc.jpg" alt="Worldcup 2018 BizPati" class="img img-responsive">
+         </center>
+         <br>
+       </div>
+     </div>
       <!-- top navbar-->
       <header class="topnavbar-wrapper">
          <!-- START Top Navbar-->
@@ -32,10 +41,10 @@
             <div class="navbar-header">
                <a href="#/" class="navbar-brand">
                   <div class="brand-logo">
-                     <img src="/assets/img/logo.png" alt="App Logo" class="img-responsive">
+                     <img src="/assets/img/sano.png" alt="App Logo" class="img-responsive">
                   </div>
                   <div class="brand-logo-collapsed">
-                     <img src="/assets/img/logo-single.png" alt="App Logo" class="img-responsive">
+                     <img src="/assets/img/bizpati.png" alt="App Logo" class="img-responsive">
                   </div>
                </a>
             </div>
@@ -45,10 +54,13 @@
                <!-- START Left navbar-->
                <ul class="nav navbar-nav navbar-right">
                  <li>
-                   <a href="/profile" target="_blank" title="Leaderboard"><i class="fa fa-table"></i></a>
+                   <a href="/today_points" target="_blank" title="Today Leaderboard"><i class="fa fa-bar-chart"></i></a>
+                 </li>
+                 <li>
+                   <a href="/tiesheet" target="_blank" title="TieSheet"><i class="fa fa-table"></i></a>
                  </li>
                  <li class="dropdown">
-                   <a href="/profile" target="_blank"><i class="fa fa-user"></i></a>
+                   <a><i class="fa fa-user"></i> <%=user.displayName %></a>
                  </li>
                </ul>
                <!-- END Left navbar-->

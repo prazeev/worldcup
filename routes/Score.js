@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-12T14:29:10+05:45
+ * @Last modified time: 2018-06-13T12:17:57+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -58,6 +58,28 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       })
     });
   });
+  router.get("/predict/:id", function(req, res) {
+    var id = req.params.id
+    dbo.collection("prediction").aggregate([
+      {
+        $match: {
+          score: new mongodb.ObjectID(id)
+        }
+      },
+      {
+        $lookup: {
+          from: "score",
+          localField: "score",
+          foreignField: "_id",
+          as: "gamedetails"
+        }
+      }
+    ]).toArray(function(err, result) {
+      res.render("score/view-score", {
+        data: result
+      });
+    })
+  })
   router.get("/create", function(req, res) {
     var id = req.params.id
     dbo.collection("game").find({}).toArray(function(err, result) {
@@ -145,8 +167,76 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       response.status = true
       response.message = "Sucessfully updated match."
       response.redirect = "/score"
-      // Response
-      res.json(response)
+      // main logic
+      dbo.collection("score").aggregate([{
+        $match: {
+            _id: new mongodb.ObjectID(id)
+        }
+      },
+      {
+        $lookup: {
+          from: "teams",
+          localField: "teamone",
+          foreignField: "_id",
+          as: "teamonedetails"
+        }
+      },
+      {
+        $lookup: {
+          from: "teams",
+          localField: "teamtwo",
+          foreignField: "_id",
+          as: "teamtwodetails"
+        }
+      }]).toArray(function(errScore, resultScore) {
+        var scoreDe = resultScore[0]
+        if(parseInt(match.scoreone) > parseInt(match.scoretwo)) {
+          var updateone = {
+            gp: scoreDe.teamonedetails[0].gp + Number(1),
+            w: scoreDe.teamonedetails[0].w + Number(1),
+            p: scoreDe.teamonedetails[0].p + Number(3)
+          }
+          var updatetwo = {
+            gp: scoreDe.teamtwodetails[0].gp + Number(1),
+            l: scoreDe.teamtwodetails[0].l + Number(1)
+          }
+        } else if(parseInt(match.scoreone) < parseInt(match.scoretwo)) {
+          var updatetwo = {
+            gp: scoreDe.teamtwodetails[0].gp + Number(1),
+            w: scoreDe.teamtwodetails[0].w + Number(1),
+            p: scoreDe.teamtwodetails[0].p + Number(3)
+          }
+          var updateone = {
+            gp: scoreDe.teamonedetails[0].gp + Number(1),
+            l: scoreDe.teamonedetails[0].l + Number(1)
+          }
+        } else {
+          var updateone = {
+            gp: scoreDe.teamonedetails[0].gp + Number(1),
+            d: scoreDe.teamonedetails[0].w + Number(1),
+            p: scoreDe.teamonedetails[0].p + Number(1)
+          }
+          var updatetwo = {
+            gp: scoreDe.teamtwodetails[0].gp + Number(1),
+            d: scoreDe.teamtwodetails[0].w + Number(1),
+            p: scoreDe.teamtwodetails[0].p + Number(1)
+          }
+        }
+        // Update DB
+        dbo.collection("teams").updateOne({
+          _id: new mongodb.ObjectID(scoreDe.teamonedetails[0]._id)
+        }, {
+          $set: updateone
+        }, function(a,b) {
+          dbo.collection("teams").updateOne({
+            _id: new mongodb.ObjectID(scoreDe.teamtwodetails[0]._id)
+          }, {
+            $set: updatetwo
+          }, function(c,d) {
+            res.json(response)
+          })
+        })
+      })
     })
   })
   router.get("/delete/:id", function(req, res) {
@@ -156,6 +246,20 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       _id: new mongodb.ObjectID(id)
     }
     dbo.collection("score").deleteOne(delObject, function(err, obj) {
+      if (err) throw err;
+      response.status = true
+      response.message = "Item Deleted Successfully"
+      response.redirect = "/score"
+      res.json(response)
+    })
+  })
+  router.get("/delete/prediction/:id", function(req, res) {
+    var id = req.params.id
+    var response = {}
+    var delObject = {
+      _id: new mongodb.ObjectID(id)
+    }
+    dbo.collection("prediction").deleteOne(delObject, function(err, obj) {
       if (err) throw err;
       response.status = true
       response.message = "Item Deleted Successfully"
