@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: index.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T15:51:30+05:45
+ * @Last modified time: 2018-06-13T16:03:17+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -61,5 +61,5 @@ app.get("/dashboard",function(req, res) {
 })
 
 
-app.listen(80)
-console.log("Server Started on port 8262")
+app.listen(8261)
+console.log("Server Started on port 80")
