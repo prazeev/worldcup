@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T14:36:51+05:45
+ * @Last modified time: 2018-06-13T14:48:45+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -42,9 +42,8 @@
      }
    }
    router.get("/", passport.authenticate('facebook'), function(req, res) {
-     dbo.collection("users").find({}, {fb_id: req.user.id}).toArray(function(err, result) {
+     dbo.collection("users").find({fb_id: req.user.id}).toArray(function(err, result) {
        if(result.length == 1) {
-
          dbo.collection("groups").aggregate([
              { $lookup:
                      {
