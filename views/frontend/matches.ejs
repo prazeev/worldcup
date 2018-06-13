@@ -1,0 +1,32 @@
+<% include ./includes/header-no-navbar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="bg-bizpati text-center" style="min-height:40px;padding-top:5px">Fixtures</h3>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>Match</th>
+                        <th>Fixture</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i=0; i< data.length; i++) { %>
+                      <tr>
+                        <td><%=data[i].match %></td>
+                        <td><%=data[i].teamonedetails[0].name %> VS <%=data[i].teamtwodetails[0].name %> </td>
+                        <td><% if(data[i].completed) { %> Completed! <% } else { %> Not Completed!<% } %></td>
+                        <td><%=data[i].time %></td>
+                      </tr>
+                    <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+         </div>
+         <% include ./includes/footer.ejs %>

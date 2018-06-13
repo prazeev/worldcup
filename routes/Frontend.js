@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T16:36:52+05:45
+ * @Last modified time: 2018-06-13T19:20:33+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -140,6 +140,53 @@
      ]).toArray(function(err, result) {
        if (err) throw err;
        res.render("frontend/result.ejs", {
+         data: result,
+         currentTime: new Date()
+       })
+     });
+   });
+   router.get("/match", function(req, res) {
+     dbo.collection("score").aggregate([
+        {
+         $match: {
+           status: true
+          }
+         },
+         { $lookup:
+                 {
+                     from: 'groups',
+                     localField: 'group',
+                     foreignField: '_id',
+                     as: 'groupdetails'
+                 }
+         },
+         { $lookup:
+                 {
+                     from: 'game',
+                     localField: 'game',
+                     foreignField: '_id',
+                     as: 'gamedetails'
+                 }
+         },
+         { $lookup:
+                 {
+                     from: 'teams',
+                     localField: 'teamone',
+                     foreignField: '_id',
+                     as: 'teamonedetails'
+                 }
+         },
+         { $lookup:
+                 {
+                     from: 'teams',
+                     localField: 'teamtwo',
+                     foreignField: '_id',
+                     as: 'teamtwodetails'
+                 }
+         }
+     ]).toArray(function(err, result) {
+       if (err) throw err;
+       res.render("frontend/matches.ejs", {
          data: result,
          currentTime: new Date()
        })
