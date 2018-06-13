@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T12:17:57+05:45
+ * @Last modified time: 2018-06-13T20:21:27+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -102,7 +102,7 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       location: match.location,
       scoreone: 0,
       scoretwo: 0,
-      status: false,
+      status: true,
       completed: false,
       date: new Date(),
       updateddate: new Date()
