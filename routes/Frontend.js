@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T14:16:41+05:45
+ * @Last modified time: 2018-06-13T14:26:04+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -19,7 +19,7 @@
  passport.use(new FacebookStrategy({
      clientID: 486467045105326,
      clientSecret: "bfb0b2a5434b0d17e8a5d2439fedbdb4",
-     callbackURL: "http://chatmini.com:8262/"
+     callbackURL: "https://chatmini.com:8262/"
    },
    function(accessToken, refreshToken, profile, done) {
      done(null, profile)
