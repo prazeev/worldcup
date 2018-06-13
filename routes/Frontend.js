@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T14:30:31+05:45
+ * @Last modified time: 2018-06-13T14:36:51+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -17,8 +17,8 @@
  var passport = require('passport')
    , FacebookStrategy = require('passport-facebook').Strategy;
  passport.use(new FacebookStrategy({
-     clientID: 486467045105326,
-     clientSecret: "bfb0b2a5434b0d17e8a5d2439fedbdb4",
+     clientID: 1626068404365914,
+     clientSecret: "c9716b4e59fb4f5a503a9469329648a2",
      callbackURL: "http://chatmini.com:8262/"
    },
    function(accessToken, refreshToken, profile, done) {
