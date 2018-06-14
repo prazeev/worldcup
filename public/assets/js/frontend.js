@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T18:29:56+05:45
+ * @Last modified time: 2018-06-14T19:08:39+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
@@ -87,6 +87,7 @@ $(function() {
                   <p class="m0">\
                      <em class="fa fa-fw fa-clock-o"></em>'+formatDate(value.time)+'\
                    </p><br>\
+                   <a href="https://www.facebook.com/sharer/sharer.php?u=worldcup.bizpati.com&quote=Hello friends i just played predict and win with BizPati and predicted for '+value.teamonedetails[0].name+' vs '+value.teamtwodetails[0].name+'." target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-facebook"></i> Share</a>\
                </div>\
             </div>\
             <!-- END widget-->\
