@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T16:04:40+05:45
+ * @Last modified time: 2018-06-14T18:29:56+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {

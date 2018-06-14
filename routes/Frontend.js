@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T16:16:55+05:45
+ * @Last modified time: 2018-06-14T18:29:19+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -46,7 +46,7 @@
    })
    router.get("/play", checkAuth, function(req, res) {
      dbo.collection("users").find({fb_id: req.user.id}).toArray(function(err, result) {
-       if(result.length == 1) {
+       if(result.length > 0) {
          dbo.collection("groups").aggregate([
              { $lookup:
                      {

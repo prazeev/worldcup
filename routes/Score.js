@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T20:21:27+05:45
+ * @Last modified time: 2018-06-14T17:53:21+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -76,8 +76,78 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       }
     ]).toArray(function(err, result) {
       res.render("score/view-score", {
-        data: result
+        data: result,
+        score_id: id
       });
+    })
+  })
+  router.get("/award/:id", function(req, res) {
+    var id = req.params.id
+    dbo.collection("prediction").aggregate([
+      {
+        $match: {
+          score: new mongodb.ObjectID(id)
+        }
+      },
+      {
+        $lookup: {
+          from: "score",
+          localField: "score",
+          foreignField: "_id",
+          as: "gamedetails"
+        }
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "fb_id",
+          foreignField: "fb_id",
+          as: "userdetails"
+        }
+      }
+    ]).toArray(function(err, result) {
+      // Awarding the points
+      // For each users
+      for(var i = 0; i < result.length; i++) {
+        var user_points = result[i].userdetails[0].points
+        var today_points = result[i].userdetails[0].today_points
+        var points = 0
+        if(result[i].gamedetails[0].completed == true) {
+          // Match Completed
+          if((result[i].scoreone == result[i].gamedetails[0].scoreone) && (result[i].scoretwo == result[i].gamedetails[0].scoretwo)) {
+            // Won
+            // if game is 0 vs 0
+            if(result[i].scoreone == 0 && result[i].scoretwo == 0) {
+              points = Number(points) + Number(100)
+            } else {
+              points = Number(50) + Number(points) + (Number(result[i].scoreone) * 10) + (Number(result[i].scoretwo) * 10)
+            }
+          } else if(result[i].scoreone == result[i].gamedetails[0].scoreone) {
+            points = Number(points) + (Number(result[i].scoreone) * 10)
+          } else if(result[i].scoretwo == result[i].gamedetails[0].scoretwo) {
+            points = Number(points) + (Number(result[i].scoretwo) * 10)
+          } else {
+            // Lost
+          }
+        } else {
+          // Match Not completed
+        }
+        dbo.collection("users").updateOne({
+          fb_id: result[i].userdetails[0].fb_id
+        }, {
+          $set: {
+            points: Number(user_points) + Number(points),
+            today_points: Number(today_points) + Number(points)
+          }
+        }, function(err, reEP) {
+
+        })
+      }
+      var response = {}
+      response.status = true
+      response.message = "Award given successfully"
+      response.redirect = "/score"
+      res.json(response)
     })
   })
   router.get("/create", function(req, res) {
@@ -87,6 +157,19 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       res.render("score/create.ejs", {
         data: result
       })
+    })
+  })
+  router.get("/reset", function(req, res) {
+    dbo.collection("users").updateMany({}, {
+      $set: {
+        today_points: 0
+      }
+    }, function(error, result) {
+      response = {}
+      response.status = true
+      response.message = "Successfully reseted the system for today points!"
+      response.redirect = "/dashboard"
+      res.json(response)
     })
   })
   router.post("/create", function(req, res) {
