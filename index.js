@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: index.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T17:10:33+05:45
+ * @Last modified time: 2018-06-14T16:24:06+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -39,24 +39,30 @@ app.use(passport.session());
 app.use(express.static('public'))
 app.set('views','./views')
 app.set('view engine', 'ejs')
-
+function checkLogin() {
+  if(req.session == null || req.session == undefined) {
+    res.redirect("/login")
+  } else {
+    next()
+  }
+}
 // For login
 app.use("/login", login)
 // For Game
-app.use("/game", game)
+app.use("/game",checkLogin, game)
 // For Groups
-app.use("/groups", groups)
+app.use("/groups",checkLogin, groups)
 // For Teams
-app.use("/teams", teams)
-app.use("/score", score)
-app.use("/users", users)
+app.use("/teams", checkLogin,teams)
+app.use("/score",checkLogin, score)
+app.use("/users",checkLogin, users)
 app.use("/", frontend)
 
 
 // For API
-app.use("/api", api)
+app.use("/api",checkLogin, api)
 app.use("/frontend", frontendApi)
-app.get("/dashboard",function(req, res) {
+app.get("/dashboard",checkLogin, function(req, res) {
   res.render("dashboard");
 })
 

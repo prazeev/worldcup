@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T14:58:38+05:45
+ * @Last modified time: 2018-06-14T16:16:55+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -41,7 +41,7 @@
        next()
      }
    }
-   router.get("/", passport.authenticate('facebook'), function(req, res) {
+   router.get("/",passport.authenticate('facebook'), function(req, res) {
      res.redirect("/play")
    })
    router.get("/play", checkAuth, function(req, res) {
