@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: index.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T16:27:43+05:45
+ * @Last modified time: 2018-06-14T16:30:31+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -40,10 +40,10 @@ app.use(express.static('public'))
 app.set('views','./views')
 app.set('view engine', 'ejs')
 function checkLogin(req, res, next) {
-  if(req.session == null || req.session == undefined) {
+  if(req.session.status != true) {
     res.redirect("/login")
   } else {
-    res.json(req.session)
+    next()
   }
 }
 // For login
