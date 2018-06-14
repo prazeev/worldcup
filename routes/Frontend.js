@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T19:20:33+05:45
+ * @Last modified time: 2018-06-14T11:23:07+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -19,7 +19,7 @@
  passport.use(new FacebookStrategy({
      clientID: 1626068404365914,
      clientSecret: "c9716b4e59fb4f5a503a9469329648a2",
-     callbackURL: "http://worldcup.bizpati.com/"
+     callbackURL: "http://worldcup.bizpati.com/fbauth/callback"
    },
    function(accessToken, refreshToken, profile, done) {
      done(null, profile)
@@ -41,6 +41,9 @@
        next()
      }
    }
+   router.get("/fbauth/callback", checkAuth, function(req, res) {
+     res.redirect("/")
+   })
    router.get("/", passport.authenticate('facebook'), function(req, res) {
      dbo.collection("users").find({fb_id: req.user.id}).toArray(function(err, result) {
        if(result.length == 1) {
