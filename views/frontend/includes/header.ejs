@@ -28,7 +28,16 @@
       gtag('js', new Date());
       gtag('config', 'UA-120823512-1');
   </script>
-
+  <style>
+  .blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  </style>
 </head>
 
 <body class="layout-h">
@@ -37,7 +46,7 @@
        <div class="col-md-12 text-center">
          <br>
          <center>
-           <img src="/assets/img/wc.jpg" alt="Worldcup 2018 BizPati" class="img img-responsive">
+           <img src="/assets/img/wc.png" alt="Worldcup 2018 BizPati" class="img img-responsive">
          </center>
          <br>
        </div>
@@ -63,13 +72,16 @@
                <!-- START Left navbar-->
                <ul class="nav navbar-nav navbar-right">
                  <li>
-                   <a href="//www.bizpati.com/worldcup" target="_blank" title="विश्वकप बिशेष"> विश्वकप बिशेष</a>
+                   <a href="//www.bizpati.com/worldcup" target="_blank" title="विश्वकप बिशेष" class="blink_me"> विश्वकप बिशेष</a>
                  </li>
                  <li>
                    <a href="/toc" target="_blank" title="TOC"> TOC</a>
                  </li>
                  <li>
                    <a href="/scoring" target="_blank" title="How to Score"> How to play</a>
+                 </li>
+                 <li>
+                   <a href="/prizes" target="_blank" title="Prizes"><i class="fa fa-money"></i> Prizes</a>
                  </li>
                  <li>
                    <a href="/match" target="_blank" title="Fixtures"><i class="fa fa-bullhorn"></i> Fixtures</a>
