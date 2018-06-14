@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T12:57:10+05:45
+ * @Last modified time: 2018-06-14T14:18:39+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -36,12 +36,21 @@
    var dbo = db.db("BizPatiGame");
    function checkAuth(req, res, next) {
      if(req.user == undefined) {
-       res.redirect("/")
+       res.redirect("/play/login")
      } else {
        next()
      }
    }
-   router.get("/", passport.authenticate('facebook'), function(req, res) {
+   router.get("/", function(req, res) {
+     if(req.user == undefined) {
+       res.render("dashboard/homepage.ejs", {
+         user: req.user
+       })
+     } else {
+       res.redirect("/play/login")
+     }
+   })
+   router.get("/play/login", passport.authenticate('facebook'), function(req, res) {
      res.redirect("/play")
    })
    router.get("/play", checkAuth, function(req, res) {
