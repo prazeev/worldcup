@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T18:54:13+05:45
+ * @Last modified time: 2018-06-15T20:00:18+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -196,12 +196,7 @@
      });
    });
    router.get("/today_points", checkAuth, function(req, res) {
-     dbo.collection("users").find({
-       $query: {},
-       $orderby: {
-         today_points : -1
-       }
-     }).toArray(function(err, result) {
+     dbo.collection("users").find({}).sort({today_points : -1}).toArray(function(err, result) {
        if (err) throw err;
        res.render("frontend/today_points.ejs", {
          data: result,
