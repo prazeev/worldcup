@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Api.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T11:10:56+05:45
+ * @Last modified time: 2018-06-15T19:55:39+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -28,14 +28,9 @@
    }
    router.get("/leaderboard/:limit", function(req, res) {
      var limit = Number(req.params.limit)
-     dbo.collection("users").find(
-       {
-         $query: {},
-         $orderby: {
-           points : -1
-         }
-       }
-     ).limit(limit).toArray(function(err, result) {
+     dbo.collection("users").find({}).sort({
+       points : -1
+     }).limit(limit).toArray(function(err, result) {
        res.json(result)
      })
    })
@@ -104,7 +99,7 @@
      })
    })
    router.get("/tiesheet", function(req, res) {
-     
+
    })
    router.get("/game", function(req, res) {
      var now = new Date();
