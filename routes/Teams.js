@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-15T23:22:45+05:45
+ * @Last modified time: 2018-06-15T23:37:01+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -75,7 +75,9 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
     }
     dbo.collection("teams").updateOne({
       _id: mongodb.ObjectID(id)
-    }, $set: updateTeam, function(err, result) {
+    }, {
+      $set: updateTeam
+    }, function(err, result) {
       if(err) throw err;
       response.status = true
       response.message = "Sucessfully updated Team."
