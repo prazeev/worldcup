@@ -1,0 +1,84 @@
+<% include ../includes/header.ejs %>
+<% include ../includes/sidebar.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>Home - Teams
+               <small>Edit Team</small>
+            </h3>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="/teams" class="btn btn-md btn-primary">
+                  <i class="fa fa-eye"></i> View Teams
+                </a>
+                <hr>
+              </div>
+              <div class="col-md-9">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    Edit Team <%=data.name %>
+                  </div>
+                  <div class="panel-body">
+                    <form class="ajaxForm" method="post" role="form" data-parsley-validate="" novalidate="">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name">Enter Team name</label>
+                          <input type="text" name="name" value="<%=data.name %>" class="form-control" placeholder="Enter team name" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="shortcode">Enter Team shortcode</label>
+                          <input type="text" name="code" class="form-control" placeholder="Enter team code" required="required" value="<%=data.code %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Points">Game Points (GP)</label>
+                          <input type="text" name="gp" class="form-control" placeholder="Enter Points" required="required" value="<%=data.gp %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Win">Win (W)</label>
+                          <input type="text" name="w" class="form-control" placeholder="Enter Wins" required="required" value="<%=data.w %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Loss">Loss (L)</label>
+                          <input type="text" name="l" class="form-control" placeholder="Enter Loss" required="required" value="<%=data.l %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Loss">Draw (D)</label>
+                          <input type="text" name="d" class="form-control" placeholder="Enter Draw" required="required" value="<%=data.l %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Loss">Points (P)</label>
+                          <input type="text" name="p" class="form-control" placeholder="Enter Points" required="required" value="<%=data.l %>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label> </label>
+                          <input class="btn btn-success" type="submit" name="submit" value="Create">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-group">
+                  <li class="list-group-item">All fields are compulsary</li>
+                </ul>
+              </div>
+            </div>
+         </div>
+      </section>
+      <!-- Page footer-->
+<% include ../includes/footer.ejs %>

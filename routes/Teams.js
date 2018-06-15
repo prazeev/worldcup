@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-13T11:24:32+05:45
+ * @Last modified time: 2018-06-15T23:22:45+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -47,6 +47,41 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
       res.render("teams/create.ejs", {
         data: result
       })
+    })
+  })
+  router.get("/edit/:id", function(req, res) {
+    var id = req.params.id
+    dbo.collection("teams").find({
+      _id: mongodb.ObjectID(id)
+    }).toArray(function(err, result) {
+      if(err) throw err;
+      res.render("teams/edit.ejs", {
+        data: result[0]
+      })
+    })
+  })
+  router.post("/edit/:id", function(req, res) {
+    var id = req.params.id
+    var team = req.body
+    var response = {}
+    var updateTeam = {
+      code: team.code,
+      gp: team.gp,
+      w: team.w,
+      l: team.l,
+      d: team.d,
+      p: team.p,
+      updated_date: new Date()
+    }
+    dbo.collection("teams").updateOne({
+      _id: mongodb.ObjectID(id)
+    }, $set: updateTeam, function(err, result) {
+      if(err) throw err;
+      response.status = true
+      response.message = "Sucessfully updated Team."
+      response.redirect = "/teams"
+      // Response
+      res.json(response)
     })
   })
   router.post("/create", function(req, res) {
