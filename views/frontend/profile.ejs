@@ -67,6 +67,7 @@
                             <th>Date</th>
                             <th>Match ID</th>
                             <th>Prediction</th>
+                            <th>Result</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -76,6 +77,7 @@
                             <td><%=data[i].date %></td>
                             <td><%=numberFormat(data[i].scores[0].match) %> Match</td>
                             <td><%=data[i].scoreone %> VS <%=data[i].scoretwo %></td>
+                            <td><%=(data[i].scores[0].completed) ? data[i].scores[0].scoreone+" VS "+data[i].scores[0].scoretwo : "Not Completed" %></td>
                           </tr>
                         <% } %>
                         </tbody>
