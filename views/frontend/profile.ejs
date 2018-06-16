@@ -6,30 +6,30 @@
               <div class="col-md-12">
                 <div class="panel panel-primary">
                   <div class="panel-header">
-                    <%=data[0].user[0].name %>'s Profile
+                    <%=userdata.name %>'s Profile
                   </div>
                   <div class="panel-body">
                     <div class="unwrap">
                       <div style="background-image: url(/assets/img/profile-bg.jpg)" class="bg-cover">
                         <div class="p-xl text-center text-white">
                           <img src="/assets/img/user/13.jpg" alt="Image" class="img-thumbnail img-circle thumb128">
-                          <h3 class="m0"><%=data[0].user[0].name %></h3>
+                          <h3 class="m0"><%=userdata.name %></h3>
                         </div>
                       </div>
                       <div class="text-center bg-gray-dark p-lg mb-xl">
                         <div class="row row-table">
                           <div class="col-xs-4 br">
-                            <h3 class="m0"><%=data[0].user[0].points %></h3>
+                            <h3 class="m0"><%=userdata.points %></h3>
                             <p class="m0">
                               <span>Total Points</span>
                             </p>
                           </div>
                           <div class="col-xs-4 br">
-                            <h3 class="m0"><%=data[0].user[0].today_points %></h3>
+                            <h3 class="m0"><%=userdata.today_points %></h3>
                             <p class="m0">Todays Points</p>
                           </div>
                           <div class="col-xs-4">
-                            <h3 class="m0"><%=data[0].user[0].game_played %></h3>
+                            <h3 class="m0"><%=userdata.game_played %></h3>
                             <p class="m0">Game Played</p>
                           </div>
                         </div>
