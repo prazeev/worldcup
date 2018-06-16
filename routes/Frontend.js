@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T15:16:11+05:45
+ * @Last modified time: 2018-06-16T15:18:43+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -112,13 +112,6 @@
              localField: 'score',
              foreignField: '_id',
              as: 'scores'
-         }
-       }, {
-         $lookup: {
-             from: 'users',
-             localField: 'fb_id',
-             foreignField: 'fb_id',
-             as: 'user'
          }
        }
      ]).toArray(function(err, result) {
