@@ -1,4 +1,27 @@
 <% include ./includes/header.ejs %>
+<% function numberFormat(time) {
+  if(time == 1)
+    return "First";
+  else if(time == 2)
+    return "Second";
+  else if(time == 3)
+    return "Third";
+  else if(time == 4)
+    return "Fourth";
+  else if(time == 5)
+    return "Fifth";
+  else if(time == 6)
+    return "Sixth";
+  else if(time == 7)
+    return "Seventh";
+  else if(time == 8)
+    return "Eighth";
+  else if(time == 9)
+    return "Nineth";
+  else
+    return time+"'th";
+}
+%>
       <section>
          <!-- Page content-->
          <div class="content-wrapper">
@@ -16,7 +39,7 @@
                           <h3 class="m0"><%=userdata.name %></h3>
                         </div>
                       </div>
-                      <div class="text-center bg-gray-dark p-lg mb-xl">
+                      <div class="text-center bg-bizpati p-lg mb-xl">
                         <div class="row row-table">
                           <div class="col-xs-4 br">
                             <h3 class="m0"><%=userdata.points %></h3>
@@ -51,7 +74,7 @@
                           <tr>
                             <td><%=(i + 1) %></td>
                             <td><%=data[i].date %></td>
-                            <td><%=data[i].scores[0].match %></td>
+                            <td><%=numberFormat(data[i].scores[0].match) %> Match</td>
                             <td><%=data[i].scoreone %> VS <%=data[i].scoretwo %></td>
                           </tr>
                         <% } %>
