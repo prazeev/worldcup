@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T14:39:37+05:45
+ * @Last modified time: 2018-06-16T14:41:05+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -19,7 +19,7 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
     dbo.collection("users").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.render("users/index.ejs", {
-        data: result[0]
+        data: result
       })
     });
   });

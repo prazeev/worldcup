@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T14:38:12+05:45
+ * @Last modified time: 2018-06-16T14:41:13+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -104,10 +104,9 @@
      dbo.collection("users").find({
        fb_id: req.user.id
      }).toArray(function(err, result) {
-       console.log(result);
        if (err) throw err;
        res.render("frontend/profile.ejs", {
-         data: result,
+         data: result[0],
          user: req.user
        })
      });
