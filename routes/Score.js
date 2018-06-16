@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T13:51:04+05:45
+ * @Last modified time: 2018-06-16T16:56:59+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -123,9 +123,17 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
               points = Number(50) + Number(points) + (Number(result[i].scoreone) * 10) + (Number(result[i].scoretwo) * 10)
             }
           } else if(result[i].scoreone == result[i].gamedetails[0].scoreone) {
-            points = Number(points) + (Number(result[i].scoreone) * 10)
+            if(result[i].scoreone == 0) {
+              points =  Number(points) + Number(30)
+            } else {
+              points = Number(points) + (Number(result[i].scoreone) * 10)
+            }
           } else if(result[i].scoretwo == result[i].gamedetails[0].scoretwo) {
-            points = Number(points) + (Number(result[i].scoretwo) * 10)
+            if(result[i].scoretwo == 0) {
+              points =  Number(points) + Number(30)
+            } else {
+              points = Number(points) + (Number(result[i].scoretwo) * 10)
+            }
           } else {
             // Lost
           }
