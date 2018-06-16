@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-14T19:20:47+05:45
+ * @Last modified time: 2018-06-16T17:25:38+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
@@ -112,6 +112,10 @@ $(function() {
       }
     })
   }
+  function openInNewTab(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+  }
   loadGame()
   loadLeaderboard()
   $(document).on("click", "[data-predict^=button]", function(e) {
@@ -136,8 +140,27 @@ $(function() {
             selector.html("<i class='fa fa-check'></i> Success")
             selector.removeClass("btn-danger")
             selector.addClass("btn-success")
-            swal("Success!!", r.message, "success")
-            window.location.href = "/";
+            swal({
+              title: "Congratulation!!",
+              text: r.message,
+              icon: "success",
+              buttons: {
+                share: {
+                  text: "Share",
+                  value: "share"
+                },
+                confirm: "OK"
+              }
+            }).then((value) => {
+              switch (value) {
+                case "share":
+                  openInNewTab("https://www.facebook.com/sharer/sharer.php?u=bizpati.com/worldcup")
+                  window.location.href = "/";
+                  break;
+                default:
+                  window.location.href = "/";
+              }
+            })
           }
         },
         error: function(r) {
