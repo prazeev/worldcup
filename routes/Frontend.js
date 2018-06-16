@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-15T20:00:18+05:45
+ * @Last modified time: 2018-06-16T14:29:31+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -100,6 +100,16 @@
      })
 
    })
+   router.get("/profile", checkAuth, function(req, res) {
+     dbo.collection("users").find({
+       fb_id: req.user.id
+     }).toArray(function(err, result) {
+       if (err) throw err;
+       res.render("frontend/profile.ejs", {
+         data: result
+       })
+     });
+   });
    router.get("/result", function(req, res) {
      dbo.collection("score").aggregate([
         {

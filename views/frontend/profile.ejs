@@ -1,0 +1,43 @@
+<% include ./includes/header.ejs %>
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="panel panel-primary">
+                  <div class="panel-header">
+                    <%=data.name %>'s Profile
+                  </div>
+                  <div class="panel-body">
+                    <div class="unwrap">
+                      <div style="background-image: url(img/profile-bg.jpg)" class="bg-cover">
+                        <div class="p-xl text-center text-white">
+                          <img src="/assets/img/user/13.jpg" alt="Image" class="img-thumbnail img-circle thumb128">
+                          <h3 class="m0"><%=data.name %></h3>
+                        </div>
+                      </div>
+                      <div class="text-center bg-gray-dark p-lg mb-xl">
+                        <div class="row row-table">
+                          <div class="col-xs-4 br">
+                            <h3 class="m0"><%=data.points %></h3>
+                            <p class="m0">
+                              <span>Total Points</span>
+                            </p>
+                          </div>
+                          <div class="col-xs-4 br">
+                            <h3 class="m0"><%=data.today_points %></h3>
+                            <p class="m0">Todays Points</p>
+                          </div>
+                          <div class="col-xs-4">
+                            <h3 class="m0"><%=data.game_played %></h3>
+                            <p class="m0">Game Played</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+         <% include ./includes/footer.ejs %>
