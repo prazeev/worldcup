@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T14:42:02+05:45
+ * @Last modified time: 2018-06-16T15:16:11+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -101,11 +101,28 @@
 
    })
    router.get("/profile", checkAuth, function(req, res) {
-     dbo.collection("users").find({
-       fb_id: req.user.id
-     }).toArray(function(err, result) {
+     dbo.collection("prediction")aggregate([
+       {
+         $match: {
+           fb_id: req.user.id
+         }
+       }, {
+         $lookup: {
+             from: 'score',
+             localField: 'score',
+             foreignField: '_id',
+             as: 'scores'
+         }
+       }, {
+         $lookup: {
+             from: 'users',
+             localField: 'fb_id',
+             foreignField: 'fb_id',
+             as: 'user'
+         }
+       }
+     ]).toArray(function(err, result) {
        if (err) throw err;
-       console.log(result);
        res.render("frontend/profile.ejs", {
          data: result[0],
          user: req.user
