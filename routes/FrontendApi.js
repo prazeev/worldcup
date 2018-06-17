@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Api.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T14:47:35+05:45
+ * @Last modified time: 2018-06-17T10:18:21+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -66,6 +66,7 @@
                $lt: tomorrow
              },
              status: true,
+             completed: false,
              _id: new mongodb.ObjectID(id)
            }
          }]).toArray(function(e,r) {
@@ -111,7 +112,8 @@
            $gt: now,
            $lt: tomorrow
          },
-         status: true
+         status: true,
+         completed: false
        }
      },
      {
