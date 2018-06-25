@@ -17,7 +17,6 @@
                       <th>Points</th>
                       <th>Todays Points</th>
                       <th>Created Date</th>
-                      <th>Facebook Profile</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -30,9 +29,6 @@
                         <td><%= data[i].points %></td>
                         <td><%= data[i].today_points %></td>
                         <td><%= data[i].date %></td>
-                        <td>
-                          <a href="https://facebook.com/profile.php?id=<%= data[i].fb_id %>" class="btn btn-danger btn-sm">View</a>
-                        </td>
                         <td>
                           <a href="delete/<%= data[i]._id %>" class="ajaxClick">Delete</a>
                         </td>
