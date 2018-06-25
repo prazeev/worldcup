@@ -35,7 +35,7 @@
                     <div class="unwrap">
                       <div style="background-image: url(/assets/img/profile-bg.jpg)" class="bg-cover">
                         <div class="p-xl text-center text-white">
-                          <img src="/assets/img/user/13.jpg" alt="Image" class="img-thumbnail img-circle thumb128">
+                          <img src="<%=(user.profile.photos) ? profile.photos[0].value : '/assets/img/user/13.jpg' %>" alt="Image" class="img-thumbnail img-circle thumb128">
                           <h3 class="m0"><%=userdata.name %></h3>
                         </div>
                       </div>

@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T16:16:10+05:45
+ * @Last modified time: 2018-06-25T12:30:28+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -19,7 +19,8 @@
  passport.use(new FacebookStrategy({
      clientID: 1626068404365914,
      clientSecret: "c9716b4e59fb4f5a503a9469329648a2",
-     callbackURL: "http://worldcup.bizpati.com/"
+     callbackURL: "http://worldcup.bizpati.com/",
+     profileFields: ['id', 'displayName', 'name', 'gender', 'picture.type(large)']
    },
    function(accessToken, refreshToken, profile, done) {
      done(null, profile)
