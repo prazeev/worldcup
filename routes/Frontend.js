@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-25T16:29:05+05:45
+ * @Last modified time: 2018-06-25T16:30:19+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -56,9 +56,7 @@
                          as: 'data'
                      }
              }
-         ]).sort({
-           data.p : -1
-         }).toArray(function(erer, resultGroups) {
+         ]).toArray(function(erer, resultGroups) {
            if (err) throw err;
            res.render("frontend/dashboard.ejs", {
              data: result[0],
