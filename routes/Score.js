@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Login.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-16T16:56:59+05:45
+ * @Last modified time: 2018-06-29T14:08:49+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 var express = require('express')
@@ -283,34 +283,34 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
         var scoreDe = resultScore[0]
         if(parseInt(match.scoreone) > parseInt(match.scoretwo)) {
           var updateone = {
-            gp: Number(scoreDe.teamonedetails[0].gp) + Number(1),
-            w: Number(scoreDe.teamonedetails[0].w) + Number(1),
-            p: Number(scoreDe.teamonedetails[0].p) + Number(3)
+            gp: Number(scoreDe.teamonedetails[0].gp) + Number(0),
+            w: Number(scoreDe.teamonedetails[0].w) + Number(0),
+            p: Number(scoreDe.teamonedetails[0].p) + Number(0)
           }
           var updatetwo = {
-            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(1),
-            l: Number(scoreDe.teamtwodetails[0].l) + Number(1)
+            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(0),
+            l: Number(scoreDe.teamtwodetails[0].l) + Number(0)
           }
         } else if(parseInt(match.scoreone) < parseInt(match.scoretwo)) {
           var updatetwo = {
-            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(1),
-            w: Number(scoreDe.teamtwodetails[0].w) + Number(1),
-            p: Number(scoreDe.teamtwodetails[0].p) + Number(3)
+            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(0),
+            w: Number(scoreDe.teamtwodetails[0].w) + Number(0),
+            p: Number(scoreDe.teamtwodetails[0].p) + Number(0)
           }
           var updateone = {
-            gp: Number(scoreDe.teamonedetails[0].gp) + Number(1),
-            l: Number(scoreDe.teamonedetails[0].l) + Number(1)
+            gp: Number(scoreDe.teamonedetails[0].gp) + Number(0),
+            l: Number(scoreDe.teamonedetails[0].l) + Number(0)
           }
         } else {
           var updateone = {
-            gp: Number(scoreDe.teamonedetails[0].gp) + Number(1),
-            d: Number(scoreDe.teamonedetails[0].w) + Number(1),
-            p: Number(scoreDe.teamonedetails[0].p) + Number(1)
+            gp: Number(scoreDe.teamonedetails[0].gp) + Number(0),
+            d: Number(scoreDe.teamonedetails[0].w) + Number(0),
+            p: Number(scoreDe.teamonedetails[0].p) + Number(0)
           }
           var updatetwo = {
-            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(1),
-            d: Number(scoreDe.teamtwodetails[0].w) + Number(1),
-            p: Number(scoreDe.teamtwodetails[0].p) + Number(1)
+            gp: Number(scoreDe.teamtwodetails[0].gp) + Number(0),
+            d: Number(scoreDe.teamtwodetails[0].w) + Number(0),
+            p: Number(scoreDe.teamtwodetails[0].p) + Number(0)
           }
         }
         // Update DB
