@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: Frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-25T16:30:19+05:45
+ * @Last modified time: 2018-06-29T14:38:58+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
  var express = require('express')
@@ -248,7 +248,7 @@
                      as: 'data'
                  }
          }
-     ]).toArray(function(err, result) {
+     ]).limit(8).toArray(function(err, result) {
        if (err) throw err;
        res.render("frontend/tiesheet.ejs", {
          data: result
