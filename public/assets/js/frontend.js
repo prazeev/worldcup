@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-29T14:23:58+05:45
+ * @Last modified time: 2018-06-29T14:25:41+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
@@ -47,6 +47,9 @@ $(function() {
     $.ajax({
       url: base_url+"frontend/game",
       success: function(response) {
+        if(response.length == 0) {
+          alert("No game")
+        }
         $.each(response, function(key, value) {
           var game = '<div class="col-lg-4">\
             <!-- START widget-->\
