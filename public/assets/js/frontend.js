@@ -4,7 +4,7 @@
  * @Email:  prazeev@gmail.com
  * @Filename: frontend.js
  * @Last modified by:   prazeev
- * @Last modified time: 2018-06-29T14:26:50+05:45
+ * @Last modified time: 2018-06-29T14:35:02+05:45
  * @Copyright: Copyright 2018, Bashudev Poudel
  */
 $(function() {
@@ -49,7 +49,7 @@ $(function() {
       success: function(response) {
         if(response.length == 0) {
           $("#gamelist").html('<div class="col-md-12">\
-              <div class="alert alert-danger">\
+              <div class="alert alert-danger bg-bizpati">\
                 No match for today.\
               </div>\
             </div>')
